@@ -19,7 +19,7 @@ int main()
     cout << endl << endl;
 
     // pointer
-    for (int(*row)[4] = ia; row != ia + 3; row++)
+    for (int_array *row = ia; row != ia + 3; row++)
         for (int *col = *row; col != *row + 4; col++)
             cout << *col << " ";
     cout << endl << endl;
