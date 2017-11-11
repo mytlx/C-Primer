@@ -167,10 +167,38 @@ unsigned short usvalue = 65535; ++usvalue;  // 0
 > (d) iter->empty(); // 判断iter指向的值是否为空
 > (e) ++*iter;  // 不合法，右结合律，*iter是string对象，不能执行++操作
 > (f) iter++->empty();  // 判断iter->empty()，再将指针向前移动一个单位
+> ```
   
-  
+  
 ## [Exercise 4.21](ex4_21.cpp)
 > 编写一段程序，使用条件运算符从vector<int>中找到哪些元素的值是奇数和，然后将这些奇数值翻倍。
+  
+  
+## [Exercise 4.22](ex4_22.cpp)
+
+
+## Exercise 4.23
+> 因为运算符的优先级问题，下面这条表达式无法通过编译。根据4.12节中的表（第147页）指出它的问题在哪里？应该如何修改？
+> ```cpp
+> string s = "word";
+> string p1 = s + s[s.size()-1] == 's' ? "" : "s";   // => string p1 = s + (s[s.size()-1] == 's' ? "" : "s");
+> ```
+
+优先级：'+' > '==' > '?:' > '=', 所以先计算s + s[s.size()-1] , 再判断是否相等
+
+
+## Exercise 4.24
+> 本节的示例程序将成绩划分成high pass、pass和fail三种，它的依据是条件运算符满足右结合律。假如条件远算符满足的是左结合律，求值过程将是怎样的？
+
+如果是左结合,等同于
+```cpp
+finalgrade = ((grade > 90) ? "high pass" : (grade < 60)) ? "fail" : "pass";
+```
+如果grade>90, 则第一个？结果是high pass， 第二个？结果是fail，矛盾
+
+
+## Exercise 4.25
+
 
 
 
