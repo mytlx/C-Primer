@@ -159,7 +159,18 @@ unsigned short usvalue = 65535; ++usvalue;  // 0
 
 
 ## Exercise 4.20
-> 
+> 假设iter的类型是vector<string>::iterator，说明下面的表达式是否合法。如果合法，表达式的含义是什么？如果不合法，错在何处？
+> ```cpp
+> (a) *iter++;  // 解引用iter，并将指针向前移动一个单位
+> (b) (*iter)++;  // 不合法，*iter是个string类型，不能执行++操作
+> (c) *iter.empty(); // 不合法，成员运算符优先级高
+> (d) iter->empty(); // 判断iter指向的值是否为空
+> (e) ++*iter;  // 不合法，右结合律，*iter是string对象，不能执行++操作
+> (f) iter++->empty();  // 判断iter->empty()，再将指针向前移动一个单位
+  
+  
+## [Exercise 4.21](ex4_21.cpp)
+> 编写一段程序，使用条件运算符从vector<int>中找到哪些元素的值是奇数和，然后将这些奇数值翻倍。
 
 
 
