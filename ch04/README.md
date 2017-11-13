@@ -216,10 +216,31 @@ unsigned long类型可以保证在任何机器上都至少拥有32位，但是un
 > (a) ul1 & ul2   // => 0011 => 3
 > (b) ul1 | ul2   // => 0111 => 7
 > (c) ul1 && ul2  // => true
-> (d) ul1 || ul2  // => true
+> (d) ul1 || ul2  // => true  
+> ```
 
 
+## [Exercise 4.28]()
 
+
+## Exercise 4.29
+> 推断下面代码的输出结果并说明理由。实际运行这段程序，结果和你想想的一样吗？如果不一样，为什么？
+> ```cpp
+> int x[10]; int *p = x;
+> cout << sizeof(x) / sizeof(*x) << endl;
+> cout << sizeof(p) / sizeof(*p) << endl;
+> ```
+
+对数组使用得到的是数组大小，所以第一个是求数组大小，结果为10，第二个一开始我认为是1/10，
+
+
+## Exercise 4.30
+> 根据4.12节中的表（第147页），在下述表达式的适当位置加上括号，使得加上括号之后表达式的含义与原来的含义相同。
+> ```cpp
+> (a) sizeof x + y
+> (b) sizeof p->mem[i]
+> (c) sizeof a < b
+> (d) sizeof f()
 
 
 
