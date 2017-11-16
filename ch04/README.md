@@ -257,23 +257,82 @@ for(vector<int>::size_type ix = 0;ix != ivec,size();ix++,cnt--)
 > 对于整数和指针类型来说，编译器可能对这种额外的工作进行一定的优化；但是对于相对复杂的迭代器类型，这种额外的工作就消耗巨大了。建议养成使用前置版本的习惯，这样不仅不需要担心性能的问题，而且更重要的是写出的代码会更符合编程的初衷。
 
 
+## Exercise 4.32
+> 解释下面这个循环的含义。
+> ```cpp
+> constexpr int size = 5;
+> int ia[size] = {1,2,3,4,5};
+> for(int *ptr = ia, ix=0;ix != size && ptr != ia+size;++ix, ++ptr)
+> { /*...*/ }
+> ```
+
+ptr是指向数组的指针，ix是数组下标，他么作用相同，控制循环条件，遍历数组
 
 
+## Exercise 4.33
+> 根据4.12节中的表（第147页）说明下面这条表达式的含义。
+> ```cpp
+> someValue ? ++x, ++y : --x, --y;
+> ```
+
+如果someValue为true，则x和y执行加一操作；如果someValue为false，则x和y执行减一操作，这个题愿意是这样，但是由于逗号的优先级最低，所以表达式等价于：  
+> ```cpp
+> (someValue ? ++x, ++y : --x), --y;
+> ```
+
+所以，如果someValue为true，对y的值会造成影响。
 
 
+## Exercise 4.34
+> 根绝本节给出的变量定义，说出在下面的表达式中将发生什么样的类型转换：
+> ```cpp
+> (a) if(fval);   // float => bool
+> (b) dval = fval + ival;   // int => float => double
+> (c) dval + ival * cval;   // char => int => double
+> ```
+> 需要注意每种运算符遵循的是左结合律还是右结合律。
 
 
+## Exercise 4.35
+> 假设有如下的定义，
+> ```cpp
+> char cval;    int ival;   usigned int ui;
+> float fval;   double dval;
+> ```
+> 请回答在下面的表达式中发生了隐式类型转换吗？如果有，指出来。
+> ```cpp
+> (a) cval = 'a' + 3;   // a => int, result => char
+> (b) fval = ui - ival * 1.0;   // ui and ival => double => float
+> (c) dval = ui * fval;   // ui => float, result => double
+> (d) cval = ival + fval + dval;    // ival => float, result1 => double, result2 => char
+> ```
 
 
+## Exercise 4.36
+> 假设i是int类型，d是double类型，书写表达式i*=d使其执行整数类型的乘法而非浮点类型的乘法。  
+```cpp
+i *= static<int>(d);
+```
 
 
+## Exercise 4.37
+> 用命名的强制类型转换改写下列旧式的转换语句。
+> ```cpp
+> int i; double d; const string *ps; char *pc; void *pv;
+> (a) pv = (void*)ps;   // pv = static_cast<void*>(const_cast<string*>(ps));
+> (b) i = int(*pc);   // i = static<int>(*pc);
+> (c) pv = &d;    // pv = static_cast<void*>(&d);
+> (d）pc = (char*) pv;   // pc = static_cast<char*>(pv); pc = reinterpret_cast<char*>(pv);
+> ```
 
 
+## Exercise 4.38
+> 说明下面这条表达式的含义。
+> ```cpp
+> double slope = static_cast<double>(j/i);
+> ```
 
-
-
-
-
+把j/i转换成double赋值给slope
 
 
 
