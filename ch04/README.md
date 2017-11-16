@@ -276,9 +276,9 @@ ptr是指向数组的指针，ix是数组下标，他么作用相同，控制循
 > ```
 
 如果someValue为true，则x和y执行加一操作；如果someValue为false，则x和y执行减一操作，这个题愿意是这样，但是由于逗号的优先级最低，所以表达式等价于：  
-> ```cpp
-> (someValue ? ++x, ++y : --x), --y;
-> ```
+```cpp
+(someValue ? ++x, ++y : --x), --y;
+```
 
 所以，如果someValue为true，对y的值会造成影响。
 
