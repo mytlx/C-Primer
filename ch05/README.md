@@ -46,6 +46,32 @@ while (val <= 10) {
 可读性降低了。
 
 
+## Exercise 5.4
+> 说明下列例子的含义，如果存在问题，试着修改它。
+> ```cpp
+> (a) while (string::iterator iter != s.end())
+>     {/*......*/}
+> (b) while (bool status = find(word))
+>     {/*......*/}
+>     if (!status)  {/*......*/}
+> ```
+
+(a) 中iter未指向对象，不合法  
+(b) 中status未在while块内，所以if中未声明
+
+
+## [Exercise 5.5]()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
